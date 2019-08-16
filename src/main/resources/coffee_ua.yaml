@@ -1,0 +1,58 @@
+properties:
+  coffee:
+    - name: Java
+      type: Арабіка
+      regions:
+        - Індонезія
+    - name: Bourbon
+      type: Арабіка
+      regions:
+        - Руанда
+        - Латинська Америка
+    - name: Charrier
+      regions:
+        - Камерун
+      type: Арабіка
+    - name: Ethiopian Harar
+      regions:
+        - Ефіопія
+      type: Арабіка
+    - name: Kopi Luwak
+      type: Robusta
+      regions:
+        - Індонезія
+    - name: Kapeng Alamid
+      type: Robusta
+      regions:
+        - Філіппіни
+    - name: Sulu coffee
+      type: Robusta
+      regions:
+        - Філіппіни
+    - name: Kapeng barako
+      type: Liberica
+      regions:
+        - Філіппіни
+    - name: Coffea canephora
+      type: Robusta
+      regions:
+        - Бразилія
+        - Індія
+        - Індонезія
+    - name: Geisha
+      type: Арабіка
+      regions:
+        - Ефіопія
+        - Танзанія
+        - Коста-Ріка
+        - Панама
+        - Колумбія
+        - Перу
+    - name: Ruiru 11
+      type: Арабіка
+      regions:
+        - Кенія
+    - name: Lvivska
+      type: Арабіка
+      regions:
+        - Україна
