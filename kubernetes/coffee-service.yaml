@@ -31,7 +31,7 @@ metadata:
   labels:
     app: coffee-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
@@ -41,3 +41,19 @@ spec:
     app: coffee-service
     serving: "true"
 ---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: coffee-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: coffee-service
+              servicePort: 8080
+#          - path: /discounted
+#            backend:
+#              serviceName: my-discounted-products
+#              servicePort: 80

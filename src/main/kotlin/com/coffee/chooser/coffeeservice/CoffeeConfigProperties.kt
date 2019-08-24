@@ -1,24 +1,28 @@
 package com.coffee.chooser.coffeeservice
 
 import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.PropertySource
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer
 
 @Configuration
 @PropertySource(value = ["classpath:coffee.yaml"], factory = YamlPropertySourceFactory::class)
-@ConfigurationProperties(prefix = "properties")
-class CoffeeConfigProperties {
+@ConfigurationProperties(prefix = "en")
+class CoffeeConfigProperties : CoffeeProperties {
+    override var coffee: List<Coffee>? = null
+    override val language: String = "english"
+}
 
-    var coffee: List<Coffee>? = null
+@Configuration
+@PropertySource(value = ["classpath:coffee_ua.yaml"], factory = YamlPropertySourceFactory::class)
+@ConfigurationProperties(prefix = "ua")
+class CoffeeUkrainianConfigProperties : CoffeeProperties {
+    override var coffee: List<Coffee>? = null
+    override val language: String = "ukrainian"
+}
 
-    companion object {
-        @Bean
-        fun propertySourcesPlaceholderConfigurer(): PropertySourcesPlaceholderConfigurer {
-            return PropertySourcesPlaceholderConfigurer()
-        }
-    }
+interface CoffeeProperties {
+    var coffee: List<Coffee>?
+    val language: String
 }
 
 class Coffee {

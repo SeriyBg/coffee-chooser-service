@@ -1,4 +1,4 @@
-properties:
+ua:
   coffee:
     - name: Java
       type: Арабіка
@@ -18,23 +18,23 @@ properties:
         - Ефіопія
       type: Арабіка
     - name: Kopi Luwak
-      type: Robusta
+      type: Рбуста
       regions:
         - Індонезія
     - name: Kapeng Alamid
-      type: Robusta
+      type: Рбуста
       regions:
         - Філіппіни
     - name: Sulu coffee
-      type: Robusta
+      type: Рбуста
       regions:
         - Філіппіни
     - name: Kapeng barako
-      type: Liberica
+      type: Ліберіка
       regions:
         - Філіппіни
     - name: Coffea canephora
-      type: Robusta
+      type: Рбуста
       regions:
         - Бразилія
         - Індія
@@ -52,7 +52,7 @@ properties:
       type: Арабіка
       regions:
         - Кенія
-    - name: Lvivska
+    - name: Львівська
       type: Арабіка
       regions:
         - Україна
