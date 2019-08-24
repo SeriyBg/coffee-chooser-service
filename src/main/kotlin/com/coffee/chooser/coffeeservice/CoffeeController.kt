@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 class CoffeeController(val coffeeConfigProperties: CoffeeConfigProperties) {
 
     @GetMapping("/coffee")
-    fun chooseCoffee() : Coffee {
-        return coffeeConfigProperties.coffee?.shuffled()!![0]
+    fun chooseCoffee() : Coffee? {
+        return coffeeConfigProperties.coffee?.shuffled()?.get(0)
     }
 }

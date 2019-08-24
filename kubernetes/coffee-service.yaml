@@ -1,0 +1,43 @@
+##################################################################################################
+# Coffee service
+##################################################################################################
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: coffee-service
+  labels:
+    app: coffee-service
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: coffee-service
+        version: "1.0"
+        serving: "true"
+    spec:
+      containers:
+        - name: coffee-service
+          image: sbishyr/coffee-service:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coffee-service
+  labels:
+    app: coffee-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    app: coffee-service
+    serving: "true"
+---
