@@ -15,6 +15,9 @@ import java.util.*
 
 @SpringBootApplication
 @EnableConfigurationProperties(value = [CoffeeConfigProperties::class])
+@org.springframework.context.annotation.PropertySource(
+		value = ["classpath:coffee_ua.yaml", "classpath:coffee.yaml"],
+		factory = YamlPropertySourceFactory::class)
 class CoffeeServiceApplication {
 
 	@Bean
