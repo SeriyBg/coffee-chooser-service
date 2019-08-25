@@ -7,14 +7,14 @@ import org.springframework.context.annotation.Configuration
 @ConfigurationProperties(prefix = "en")
 class CoffeeConfigProperties : CoffeeProperties {
     override var coffee: List<Coffee>? = null
-    override val language: String = "english"
+    override val language: String = "en"
 }
 
 @Configuration
 @ConfigurationProperties(prefix = "ua")
 class CoffeeUkrainianConfigProperties : CoffeeProperties {
     override var coffee: List<Coffee>? = null
-    override val language: String = "ukrainian"
+    override val language: String = "ua"
 }
 
 interface CoffeeProperties {

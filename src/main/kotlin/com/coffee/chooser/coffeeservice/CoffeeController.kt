@@ -12,7 +12,7 @@ class CoffeeController @Autowired constructor(coffeeProperties: List<CoffeePrope
 
     @GetMapping("/coffee")
     fun chooseCoffee(@RequestHeader("content-language") language: String?) : Coffee? {
-        return calculateCoffeeOfTheDay(language ?: "english")
+        return calculateCoffeeOfTheDay(language ?: "en")
     }
 
     private fun calculateCoffeeOfTheDay(language: String) : Coffee? {
