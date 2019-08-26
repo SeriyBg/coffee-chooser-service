@@ -8,7 +8,7 @@ class CoffeeController(val coffeeConfigProperties: CoffeeConfigProperties) {
 
     @GetMapping("/coffee")
     fun chooseCoffee() : Coffee? {
-        throw IllegalArgumentException("Unexpected bug occurred!")
+        Thread.sleep(3_000)
         return coffeeConfigProperties.coffee?.shuffled()?.get(0)
     }
 }
