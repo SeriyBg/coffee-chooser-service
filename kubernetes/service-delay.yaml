@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: coffee-service
+  name: coffee-service-delay
   labels:
     app: coffee-service
 spec:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: coffee-service
-          image: sbishyr/coffee-service:1.0-error
+          image: sbishyr/coffee-service:1.0-delay
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

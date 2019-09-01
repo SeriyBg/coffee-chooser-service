@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: coffee-service
+  name: coffee-service-error
   labels:
     app: coffee-service
 spec:
@@ -10,12 +10,12 @@ spec:
     metadata:
       labels:
         app: coffee-service
-        version: "2.0"
+        version: "1.0"
         serving: "true"
     spec:
       containers:
         - name: coffee-service
-          image: sbishyr/coffee-service:2.0
+          image: sbishyr/coffee-service:1.0-error
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

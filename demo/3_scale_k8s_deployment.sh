@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash -v
 
 kubectl scale deployment/coffee-service --replicas=3

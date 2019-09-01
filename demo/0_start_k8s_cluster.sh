@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash -v
 
 PROJECT_ID=${GKE_PORJECT_ID};
 
