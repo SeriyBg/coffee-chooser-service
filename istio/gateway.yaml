@@ -1,0 +1,52 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: coffee-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*.istiodemo.xyz"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: coffee-default
+spec:
+  hosts:
+    - "*.istiodemo.xyz"
+  gateways:
+    - coffee-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /coffee
+      route:
+        - destination:
+            host: coffee-service
+            port:
+              number: 8080
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: ui-default
+spec:
+  hosts:
+    - "*.istiodemo.xyz"
+  gateways:
+    - coffee-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: coffee-ui
+            port:
+              number: 80

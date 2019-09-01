@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: coffee-service-delay
@@ -20,3 +20,8 @@ spec:
           ports:
             - containerPort: 8080
               name: http
+  selector:
+    matchLabels:
+      app: coffee-service
+      version: "1.0"
+      serving: "true"
