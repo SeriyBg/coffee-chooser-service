@@ -17,3 +17,6 @@ spec:
             subset: v1
             port:
               number: 8080
+      mirror:
+        host: coffee-service
+        subset: v2

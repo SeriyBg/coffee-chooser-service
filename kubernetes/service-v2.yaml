@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: coffee-service
+  name: coffee-service-v2
   labels:
     app: coffee-service
 spec:
@@ -10,7 +10,7 @@ spec:
     metadata:
       labels:
         app: coffee-service
-        version: "1.0"
+        version: "2.0"
         serving: "true"
     spec:
       containers:

@@ -1,0 +1,12 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: coffee-service
+spec:
+  host: coffee-service
+  trafficPolicy:
+    outlierDetection:
+      consecutiveErrors: 2
+      interval: 10s
+      baseEjectionTime: 1m
+      maxEjectionPercent: 100

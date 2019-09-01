@@ -11,6 +11,18 @@ spec:
     - match:
         - uri:
             prefix: /coffee
+        - headers:
+            user-agent:
+              regex: ".*Chrome.*"
+      route:
+        - destination:
+            host: coffee-service
+            subset: v2
+            port:
+              number: 8080
+    - match:
+        - uri:
+            prefix: /coffee
       route:
         - destination:
             host: coffee-service
