@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: fanout-ingress
+  annotations:
+    kubernetes.io/ingress.class: gce
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /coffee
+            backend:
+              serviceName: coffee-service
+              servicePort: 8080
+          - path: /*
+            backend:
+              serviceName: coffee-ui
+              servicePort: 80

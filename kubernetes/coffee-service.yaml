@@ -49,14 +49,3 @@ spec:
   selector:
     app: coffee-service
     serving: "true"
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: basic-ingress
-  annotations:
-    kubernetes.io/ingress.class: gce
-spec:
-  backend:
-    serviceName: coffee-service
-    servicePort: 8080
