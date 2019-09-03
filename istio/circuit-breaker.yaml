@@ -5,8 +5,13 @@ metadata:
 spec:
   host: coffee-service
   trafficPolicy:
+    connectionPool:
+      http: {}
+      tcp: {}
+    loadBalancer:
+      simple: RANDOM
     outlierDetection:
-      consecutiveErrors: 2
+      consecutiveErrors: 3
       interval: 10s
       baseEjectionTime: 1m
       maxEjectionPercent: 100
