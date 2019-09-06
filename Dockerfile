@@ -1,7 +1,8 @@
 FROM maven:3.5-jdk-8 AS build
 WORKDIR /app
-COPY src /app/src
 COPY pom.xml /app
+RUN mvn dependency:go-offline -B
+COPY src /app/src
 RUN mvn clean install
 
 FROM openjdk:8u131-jre-alpine

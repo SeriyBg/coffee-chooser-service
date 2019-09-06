@@ -1,7 +1,7 @@
 ##################################################################################################
 # Coffee service
 ##################################################################################################
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: coffee-service
@@ -32,6 +32,11 @@ spec:
               path: /coffee
               port: 8080
             initialDelaySeconds: 20
+  selector:
+    matchLabels:
+      app: coffee-service
+      version: "1.0"
+      serving: "true"
 ---
 apiVersion: v1
 kind: Service
@@ -40,7 +45,7 @@ metadata:
   labels:
     app: coffee-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
