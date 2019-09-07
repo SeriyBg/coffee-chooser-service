@@ -35,14 +35,13 @@ spec:
           - message
 ---
 # Rule to send metric instances to a Prometheus handler
-apiVersion: "config.istio.io/v1alpha2"
+apiVersion: config.istio.io/v1alpha2
 kind: rule
 metadata:
   name: androidprom
   namespace: istio-system
 spec:
-#  match: '".*Android.*".matches(request.headers["user-agent"])' # match only for the android users
+  match: '".*Android.*".matches(request.headers["user-agent"])' # match only for the android users
   actions:
-    - handler: androidhandler.prometheus
-      instances:
-        - androidrequestcount.metric
+    - handler: androidhandler
+      instances: [ androidrequestcount ]
