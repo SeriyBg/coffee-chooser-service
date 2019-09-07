@@ -10,10 +10,10 @@ class CoffeeController(val coffeeConfigProperties: CoffeeConfigProperties) {
 
     @GetMapping("/coffee")
     fun chooseCoffee() : Coffee? {
-        throw BadGateway()
+        throw ServiceUnavailable()
         return coffeeConfigProperties.coffee?.shuffled()?.get(0)
     }
 }
 
-@ResponseStatus(value = HttpStatus.BAD_GATEWAY)
-class BadGateway : RuntimeException()
+@ResponseStatus(value = HttpStatus.SERVICE_UNAVAILABLE)
+class ServiceUnavailable : RuntimeException()
