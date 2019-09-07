@@ -13,6 +13,9 @@ class CoffeeController(val coffeeConfigProperties: CoffeeConfigProperties) {
         throw ServiceUnavailable()
         return coffeeConfigProperties.coffee?.shuffled()?.get(0)
     }
+
+    @GetMapping("/health")
+    fun health() = "Ok"
 }
 
 @ResponseStatus(value = HttpStatus.SERVICE_UNAVAILABLE)
