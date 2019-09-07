@@ -18,15 +18,15 @@ ua:
         - Ефіопія
       type: Арабіка
     - name: Kopi Luwak
-      type: Рбуста
+      type: Робуста
       regions:
         - Індонезія
     - name: Kapeng Alamid
-      type: Рбуста
+      type: Робуста
       regions:
         - Філіппіни
     - name: Sulu coffee
-      type: Рбуста
+      type: Робуста
       regions:
         - Філіппіни
     - name: Kapeng barako
@@ -34,7 +34,7 @@ ua:
       regions:
         - Філіппіни
     - name: Coffea canephora
-      type: Рбуста
+      type: Робуста
       regions:
         - Бразилія
         - Індія
