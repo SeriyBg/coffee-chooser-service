@@ -11,7 +11,7 @@ spec:
     - match:
         - uri:
             prefix: /coffee
-        - headers:
+          headers:
             user-agent:
               regex: ".*Chrome.*"
       route:
