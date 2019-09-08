@@ -1,0 +1,41 @@
+# ServiceEntry to service running on local machine
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: external-svc-http
+spec:
+  hosts:
+    - 2187dded.ngrok.io
+  ports:
+    - number: 80
+      name: http-ext
+      protocol: HTTP
+  location: MESH_EXTERNAL
+  resolution: NONE
+---
+# Redirect on debug header
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: coffee-default
+spec:
+  hosts:
+    - "*.istiodemo.xyz"
+  gateways:
+    - coffee-gateway
+  http:
+    - match:
+        - headers:
+            X-debug:
+              exact: "true"
+          uri:
+            prefix: /coffee
+      redirect:
+        authority: 2187dded.ngrok.io
+    - match:
+        - uri:
+            prefix: /coffee
+      route:
+        - destination:
+            host: coffee-service
+            subset: v2
