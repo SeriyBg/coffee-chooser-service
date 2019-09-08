@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: coffee-default
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - coffee-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /coffee
+      route:
+        - destination:
+            host: coffee-service
+      fault:
+        delay:
+          fixedDelay: 5s
+          percent: 100
