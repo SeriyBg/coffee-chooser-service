@@ -16,4 +16,4 @@ spec:
             host: coffee-service
             port:
               number: 8080
-      timeout: 2s
+      timeout: 0.5s

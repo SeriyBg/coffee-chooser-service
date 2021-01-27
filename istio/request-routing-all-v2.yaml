@@ -4,7 +4,7 @@ metadata:
   name: coffee-default
 spec:
   hosts:
-    - "*.istiodemo.xyz"
+    - "*"
   gateways:
     - coffee-gateway
   http:

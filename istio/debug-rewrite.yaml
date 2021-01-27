@@ -5,7 +5,7 @@ metadata:
   name: external-svc-http
 spec:
   hosts:
-    - 2187dded.ngrok.io
+    - 9f3c479dee5b.ngrok.io
   ports:
     - number: 80
       name: http-ext
@@ -20,7 +20,7 @@ metadata:
   name: coffee-default
 spec:
   hosts:
-    - "*.istiodemo.xyz"
+    - "*"
   gateways:
     - coffee-gateway
   http:
@@ -31,7 +31,7 @@ spec:
           uri:
             prefix: /coffee
       redirect:
-        authority: 2187dded.ngrok.io
+        authority: 9f3c479dee5b.ngrok.io
     - match:
         - uri:
             prefix: /coffee

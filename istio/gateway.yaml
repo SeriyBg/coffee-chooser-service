@@ -11,7 +11,7 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - "*.istiodemo.xyz"
+        - "*"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -19,7 +19,7 @@ metadata:
   name: coffee-default
 spec:
   hosts:
-    - "*.istiodemo.xyz"
+    - "*"
   gateways:
     - coffee-gateway
   http:
@@ -38,7 +38,7 @@ metadata:
   name: ui-default
 spec:
   hosts:
-    - "*.istiodemo.xyz"
+    - "*"
   gateways:
     - coffee-gateway
   http:
